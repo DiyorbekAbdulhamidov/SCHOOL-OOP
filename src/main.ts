@@ -14,4 +14,3 @@ studentService.create(student);
 
 console.log(teacherService.getAllteachers());
 console.log(studentService.getAllStudents());
-

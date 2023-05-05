@@ -1,4 +1,3 @@
-"use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.StudentService = void 0;
 class StudentService {
