@@ -1,5 +1,5 @@
 export class Student{
-    constructor(public fullName : string, public phoneNumber : string, public groupId : number, public teacherId : number, public schoolId : number){};
+    constructor(public fullName : string, public phoneNumber : string, public groupName : string, public teacherName : string, public schoolId : number){};
     private id: number = 0;
 
     getStudentId(){
