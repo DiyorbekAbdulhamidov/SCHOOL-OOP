@@ -1,0 +1,10 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const student_1 = require("./students/student/student");
+const studentservice_1 = require("./students/student.service/studentservice");
+let student = new student_1.Student("Diyorbek Abdulhamidov", "900104240", 9, 1, 12);
+let student1 = new student_1.Student("Diyorbek Parpiyev", "900104240", 12, 12, 12);
+let studentService = new studentservice_1.StudentService;
+studentService.create(student, student1);
+console.log(studentService.getAllStudents());
+console.log(studentService.getStudentById(1));
