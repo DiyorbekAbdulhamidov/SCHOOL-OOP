@@ -1,32 +1,36 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-var student_1 = require("./students/student/student");
-var studentservice_1 = require("./students/student.service/studentservice");
-var teacher_1 = require("./teachers/teacher/teacher");
-var teacherservice_1 = require("./teachers/teacherservice/teacherservice");
-var school_1 = require("./schools/school/school");
-var schoolservice_1 = require("./schools/school.service/schoolservice");
-var predmet_1 = require("./predmets/predmet/predmet");
-var predmetservise_1 = require("./predmets/predmetservice/predmetservise");
-var group_1 = require("./gruops/groups/group");
-var groupservice_1 = require("./gruops/groupsservice/groupservice");
-var teacherService = new teacherservice_1.TeacherService();
-var studentService = new studentservice_1.StudentService();
-var schoolService = new schoolservice_1.SchoolService();
-var predmetService = new predmetservise_1.PredmetService();
-var gruppeService = new groupservice_1.GroupService();
-var teacher = new teacher_1.Teacher("Lola Azimova", 2, [12, 5, 73], "MATEMATIKA");
-var student = new student_1.Student("Diyorbek Abdulhamdov", "900104240", "9-V", "Lola Azimova", 12);
-var school = new school_1.School(12, "Angren Shahar", "PREZIDENT MAKTABI", [student]);
-var predmet = new predmet_1.Predmet("Matematika", "Lola Azimova");
-var group = new group_1.Group("9-V", 12, 27);
-teacherService.create(teacher);
-studentService.create(student);
+exports.Main = void 0;
+const student_1 = require("./students/student/student");
+const studentservice_1 = require("./students/student.service/studentservice");
+const teacher_1 = require("./teachers/teacher/teacher");
+const teacherservice_1 = require("./teachers/teacherservice/teacherservice");
+const school_1 = require("./schools/school/school");
+const schoolservice_1 = require("./schools/school.service/schoolservice");
+const predmet_1 = require("./predmets/predmet/predmet");
+const predmetservise_1 = require("./predmets/predmetservice/predmetservise");
+const group_1 = require("./gruops/groups/group");
+const groupservice_1 = require("./gruops/groupsservice/groupservice");
+let teacherService = new teacherservice_1.TeacherService();
+let studentService = new studentservice_1.StudentService();
+let schoolService = new schoolservice_1.SchoolService();
+let predmetService = new predmetservise_1.PredmetService();
+let gruppeService = new groupservice_1.GroupService();
+let teacher = new teacher_1.Teacher("Lola Azimova", 2, [12, 5, 73], "MATEMATIKA");
+let student = new student_1.Student("Diyorbek Abdulhamdov", "900104240", "9-V", "Lola Azimova", 12);
+let student2 = new student_1.Student("Fayzbek Abdulhamidov", "900362911", "11-B", "Azizaxon", 12);
+let school = new school_1.School(12, "Angren Shahar", "PREZIDENT MAKTABI", []);
+let predmet = new predmet_1.Predmet("Matematika", "Lola Azimova");
+let group = new group_1.Group("9-V", 12, 27);
+studentService.create(student, student2);
 schoolService.create(school);
-predmetService.create(predmet);
-gruppeService.create(group);
-console.log(teacherService.getAllteachers());
-console.log(studentService.getAllStudents());
-console.log(schoolService.getAllSchools());
-console.log(predmetService.getAllPredmets());
-console.log(gruppeService.getAllGroups());
+class Main {
+    getStudentBySchoolNum(num) {
+        if (num === schoolService.getSchoolNum() && schoolService.getSchoolNum() === studentService.getSchoolNum()) {
+            return studentService.getAllStudents();
+        }
+        else
+            throw new Error("Student not found ❌");
+    } //xato shundaki sikl faqat bir marta aylanyapti va faqat studenni tekshiryapti studen2 esa o`z holicha qolib ketpati
+}
+exports.Main = Main;

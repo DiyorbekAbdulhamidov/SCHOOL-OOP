@@ -26,5 +26,10 @@ export class StudentService{
         if (student)return student;
         else throw new Error("Student not found❌");
     }
-    
+
+    getSchoolNum() {
+        for (const student of this.students){
+            return student.schoolNum;
+        }
+    }    
 }

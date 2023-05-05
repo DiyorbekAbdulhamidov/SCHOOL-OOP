@@ -1,9 +1,8 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Teacher = void 0;
-var Teacher = /** @class */ (function () {
-    function Teacher(fullName, staj, schoolIds, predmets) {
-        if (schoolIds === void 0) { schoolIds = []; }
+class Teacher {
+    constructor(fullName, staj, schoolIds = [], predmets) {
         this.fullName = fullName;
         this.staj = staj;
         this.schoolIds = schoolIds;
@@ -11,12 +10,11 @@ var Teacher = /** @class */ (function () {
         this.id = 0;
     }
     ;
-    Teacher.prototype.getTeacherId = function () {
+    getTeacherId() {
         return this.id;
-    };
-    Teacher.prototype.setTeacherId = function (teacherId) {
+    }
+    setTeacherId(teacherId) {
         this.id = teacherId;
-    };
-    return Teacher;
-}());
+    }
+}
 exports.Teacher = Teacher;

@@ -20,11 +20,13 @@ export class SchoolService {
         return this.schools;
     }
 
-    getSchoolBySchoolId(id: number) {
-        const school = this.schools.find(school => school.getSchoolId() === id);
-        if (school) return school;
-        else throw new Error("School not found ❌");
+    getSchoolNum() {
+        for(let school of this.schools){
+            return school.schoolNumber;
+        }
     }
+    
+    
 
 }
 
