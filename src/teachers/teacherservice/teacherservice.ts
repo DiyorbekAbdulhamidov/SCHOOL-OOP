@@ -24,6 +24,6 @@ export class TeacherService{
     getTeacherByTeacherId(teacherId: number){
         const teacher = this.teachers.find(teacher => teacher.getTeacherId() == teacherId);
         if(teacher) return teacher
-        else throw new Error("Teacher not found");
+        else throw new Error("Teacher not found ❌");
     }
 }

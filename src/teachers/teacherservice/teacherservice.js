@@ -25,7 +25,7 @@ class TeacherService {
         if (teacher)
             return teacher;
         else
-            throw new Error("Teacher not found");
+            throw new Error("Teacher not found ❌");
     }
 }
 exports.TeacherService = TeacherService;
