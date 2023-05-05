@@ -1,7 +1,7 @@
 import { Predmet } from "../predmet/predmet";
 
 export class PredmetService{
-    private predmets : Predmet[] = [];
+    private predmets: Predmet[] = [];
     private id:number = 0;
 
     create(...predmets : Predmet[]){
@@ -11,7 +11,7 @@ export class PredmetService{
                     throw new Error ("Predmet already exists 👌");
                 }
             }
-            predmets.push(predmet);
+            this.predmets.push(predmet);
             predmet.setPredId(++this.id);        
         }
     }
