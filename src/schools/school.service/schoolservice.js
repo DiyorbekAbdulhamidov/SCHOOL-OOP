@@ -1,14 +1,19 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.SchoolService = void 0;
-class SchoolService {
-    constructor() {
+var SchoolService = /** @class */ (function () {
+    function SchoolService() {
         this.schools = [];
         this.id = 0;
     }
-    create(...schools) {
-        for (let school of schools) {
-            for (let i = 0; i < this.schools.length; i++) {
+    SchoolService.prototype.create = function () {
+        var schools = [];
+        for (var _i = 0; _i < arguments.length; _i++) {
+            schools[_i] = arguments[_i];
+        }
+        for (var _a = 0, schools_1 = schools; _a < schools_1.length; _a++) {
+            var school = schools_1[_a];
+            for (var i = 0; i < this.schools.length; i++) {
                 if (this.schools[i].getSchoolId() === school.getSchoolId()) {
                     throw new Error("School already exists👌");
                 }
@@ -16,14 +21,16 @@ class SchoolService {
             this.schools.push(school);
             school.setSchoolId(++this.id);
         }
-    }
-    getAllSchools() {
+    };
+    SchoolService.prototype.getAllSchools = function () {
         return this.schools;
-    }
-    getSchoolNum() {
-        for (let school of this.schools) {
+    };
+    SchoolService.prototype.getSchoolNum = function () {
+        for (var _i = 0, _a = this.schools; _i < _a.length; _i++) {
+            var school = _a[_i];
             return school.schoolNumber;
         }
-    }
-}
+    };
+    return SchoolService;
+}());
 exports.SchoolService = SchoolService;

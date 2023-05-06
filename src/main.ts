@@ -8,6 +8,8 @@ import { Predmet } from "./predmets/predmet/predmet";
 import { PredmetService } from "./predmets/predmetservice/predmetservise";
 import { Group } from "./gruops/groups/group";
 import { GroupService } from "./gruops/groupsservice/groupservice";
+import { Fan } from "./teachers/teacher/teacher";
+
 
 let teacherService = new TeacherService();
 let studentService = new StudentService();
@@ -20,7 +22,7 @@ let student = new Student("Diyorbek Abdulhamdov", "900104240", "9-V", "Lola Azim
 let student2 = new Student("Fayzbek Abdulhamidov", "900362911", "9-D", "Azizaxon", 12);
 let school = new School(12, "Angren Shahar", "PREZIDENT MAKTABI", []);
 let predmet = new Predmet("MATEMATIKA", "Lola Azimova");
-let group = new Group("9-V", 12, 27);
+let group = new Group("9-V",12, 27);
 
 studentService.create(student,student2);
 teacherService.create(teacher);
@@ -40,5 +42,24 @@ export class Main {
         if(teachers.length === 0) throw new Error("Techer not found ❌");
         return teachers;
     }
-    
+    getStudentByGroup(gruopName:string){
+        for(let student of studentService.getAllStudents()){
+            if(gruopName === student.groupName){
+                return student;
+            }
+            else throw new Error ("Student not found ❌");
+        }
+    }
+    getTeacherByPredmet(fan : string){
+        for(let teacher of teacherService.getAllteachers()){
+            if(teacher.predmets === fan) return teacher;
+            throw new Error("Teacher not found ❌");   
+        }
+    }  
+    getSchoolByNum(schoolNum : number){
+        for(let school of schoolService.getAllSchools()){
+            if(school.schoolNumber === schoolNum) return school;
+            throw new Error("School not found ❌");
+        }
+    }
 }  

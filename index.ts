@@ -2,5 +2,8 @@ import { Main } from "./src/main";
 
 let main = new Main();
 
-console.log(main.getStudentBySchoolNum(12));
-console.log(main.getTeacherBySchoolNum(5));
+// console.log(main.getStudentBySchoolNum(12));
+// console.log(main.getTeacherBySchoolNum(5));
+// console.log(main.getStudentByGroup("9-V"));
+// console.log(main.getTeacherByPredmet("MATEMATIKA"));
+console.log(main.getSchoolByNum(12));

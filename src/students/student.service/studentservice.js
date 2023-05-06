@@ -1,16 +1,21 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.StudentService = void 0;
-class StudentService {
-    constructor() {
+var StudentService = /** @class */ (function () {
+    function StudentService() {
         this.students = [];
         this.studentId = 0;
     }
-    create(...students) {
-        for (let student of students) {
-            for (let i = 0; i < this.students.length; i++) {
+    StudentService.prototype.create = function () {
+        var students = [];
+        for (var _i = 0; _i < arguments.length; _i++) {
+            students[_i] = arguments[_i];
+        }
+        for (var _a = 0, students_1 = students; _a < students_1.length; _a++) {
+            var student = students_1[_a];
+            for (var i = 0; i < this.students.length; i++) {
                 if (this.students[i].groupName == student.groupName) {
-                    throw new Error(`Student ${student.groupName} already exists 🙌`);
+                    throw new Error("Student ".concat(student.groupName, " already exists \uD83D\uDE4C"));
                 }
                 if (this.students[i].getStudentId() === student.getStudentId()) {
                     throw new Error("Student already exists👌");
@@ -19,21 +24,23 @@ class StudentService {
             this.students.push(student);
             student.setStudentId(++this.studentId);
         }
-    }
-    getAllStudents() {
+    };
+    StudentService.prototype.getAllStudents = function () {
         return this.students;
-    }
-    getStudentById(id) {
-        const student = this.students.find(student => id === student.getStudentId());
+    };
+    StudentService.prototype.getStudentById = function (id) {
+        var student = this.students.find(function (student) { return id === student.getStudentId(); });
         if (student)
             return student;
         else
             throw new Error("Student not found❌");
-    }
-    getSchoolNum() {
-        for (const student of this.students) {
+    };
+    StudentService.prototype.getSchoolNum = function () {
+        for (var _i = 0, _a = this.students; _i < _a.length; _i++) {
+            var student = _a[_i];
             return student.schoolNum;
         }
-    }
-}
+    };
+    return StudentService;
+}());
 exports.StudentService = StudentService;
