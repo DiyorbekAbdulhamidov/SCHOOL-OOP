@@ -10,7 +10,6 @@ import { Group } from "./gruops/groups/group";
 import { GroupService } from "./gruops/groupsservice/groupservice";
 import { Fan } from "./teachers/teacher/teacher";
 
-
 let teacherService = new TeacherService();
 let studentService = new StudentService();
 let schoolService = new SchoolService();
@@ -20,15 +19,16 @@ let gruppeService = new GroupService();
 let teacher = new Teacher("Lola Azimova", 2, [12, 5, 73], "MATEMATIKA");
 let student = new Student("Diyorbek Abdulhamdov", "900104240", "9-V", "Lola", 12);
 let student2 = new Student("Fayzbek Abdulhamidov", "900362911", "9-D", "Azizaxon", 12);
-let school = new School(12, "Angren Shahar", "PREZIDENT MAKTABI", []);
+let school = new School(12, "Angren Shahar", "PREZIDENT MAKTABI", "9-v");
 let predmet = new Predmet("MATEMATIKA", "Lola");
 let group = new Group("9-V",12, 27);
+let group2 = new Group("9-V",12,30);
 
 studentService.create(student,student2);
 teacherService.create(teacher);
 schoolService.create(school);
 predmetService.create(predmet);
-gruppeService.create(group);
+gruppeService.create(group,group2);
 
 export class Main {
     getStudentBySchoolNum(num: number) {

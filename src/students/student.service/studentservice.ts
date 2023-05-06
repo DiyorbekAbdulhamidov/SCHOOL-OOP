@@ -8,9 +8,6 @@ export class StudentService {
     create(...students: Student[]) {
         for (let student of students) {
             for (let i = 0; i < this.students.length; i++) {
-                if (this.students[i].groupName == student.groupName) {
-                    throw new Error(`Student ${student.groupName} already exists 🙌`);
-                }
                 if (this.students[i].getStudentId() === student.getStudentId()) {
                     throw new Error("Student already exists👌");
                 }

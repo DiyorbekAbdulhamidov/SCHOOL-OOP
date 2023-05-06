@@ -14,9 +14,6 @@ var StudentService = /** @class */ (function () {
         for (var _a = 0, students_1 = students; _a < students_1.length; _a++) {
             var student = students_1[_a];
             for (var i = 0; i < this.students.length; i++) {
-                if (this.students[i].groupName == student.groupName) {
-                    throw new Error("Student ".concat(student.groupName, " already exists \uD83D\uDE4C"));
-                }
                 if (this.students[i].getStudentId() === student.getStudentId()) {
                     throw new Error("Student already exists👌");
                 }

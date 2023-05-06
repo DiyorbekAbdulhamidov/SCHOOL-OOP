@@ -1,4 +1,7 @@
 import { Group } from "../groups/group";
+import { SchoolService } from "../../schools/school.service/schoolservice";
+
+let schoolService = new SchoolService();
 
 export class GroupService {
     private id: number = 0;
@@ -7,6 +10,9 @@ export class GroupService {
     create(...groups: Group[]) {
         for (let group of groups) {
             for (let i = 0; i < this.groups.length; i++) {
+                for(let school of schoolService.getAllSchools()){
+                    if(group.name === school.groupName) throw new Error("This group has school ❌");
+                }
                 if (group.getId() === this.groups[i].getId()) {
                     throw new Error("Group already exists👌")
                 }
