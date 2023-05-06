@@ -17,10 +17,10 @@ var schoolService = new schoolservice_1.SchoolService();
 var predmetService = new predmetservise_1.PredmetService();
 var gruppeService = new groupservice_1.GroupService();
 var teacher = new teacher_1.Teacher("Lola Azimova", 2, [12, 5, 73], "MATEMATIKA");
-var student = new student_1.Student("Diyorbek Abdulhamdov", "900104240", "9-V", "Lola Azimova", 12);
+var student = new student_1.Student("Diyorbek Abdulhamdov", "900104240", "9-V", "Lola", 12);
 var student2 = new student_1.Student("Fayzbek Abdulhamidov", "900362911", "9-D", "Azizaxon", 12);
 var school = new school_1.School(12, "Angren Shahar", "PREZIDENT MAKTABI", []);
-var predmet = new predmet_1.Predmet("MATEMATIKA", "Lola Azimova");
+var predmet = new predmet_1.Predmet("MATEMATIKA", "Lola");
 var group = new group_1.Group("9-V", 12, 27);
 studentService.create(student, student2);
 teacherService.create(teacher);
@@ -67,6 +67,14 @@ var Main = /** @class */ (function () {
             if (school_2.schoolNumber === schoolNum)
                 return school_2;
             throw new Error("School not found ❌");
+        }
+    };
+    Main.prototype.getPredmetByTeacher = function (teacherName) {
+        for (var _i = 0, _a = predmetService.getAllPredmets(); _i < _a.length; _i++) {
+            var predmet_2 = _a[_i];
+            if (predmet_2.teacherName.toLocaleLowerCase() === teacherName.toLocaleLowerCase())
+                return predmet_2;
+            throw new Error("Predmet not found ❌");
         }
     };
     return Main;

@@ -6,4 +6,5 @@ var main = new main_1.Main();
 // console.log(main.getTeacherBySchoolNum(5));
 // console.log(main.getStudentByGroup("9-V"));
 // console.log(main.getTeacherByPredmet("MATEMATIKA"));
-console.log(main.getSchoolByNum(12));
+// console.log(main.getSchoolByNum(12));
+console.log(main.getPredmetByTeacher("Lola"));
