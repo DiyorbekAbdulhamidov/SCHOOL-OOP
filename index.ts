@@ -7,5 +7,10 @@ let main = new Main();
 // console.log(main.getStudentByGroup("9-V"));
 // console.log(main.getTeacherByPredmet("MATEMATIKA"));
 // console.log(main.getSchoolByNum(12));
-console.log(main.getPredmetByTeacher("Lola"));
+// console.log(main.getPredmetByTeacher("Lola"));
+// console.log(main.getGroupBySchoolNum(12));
+// console.log(main.addStudenttoGroup());
+console.log(main.addGroupToSchool());
+
+
 

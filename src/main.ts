@@ -17,17 +17,21 @@ let predmetService = new PredmetService();
 let gruppeService = new GroupService();
 
 let teacher = new Teacher("Lola Azimova", 2, [12, 5, 73], "MATEMATIKA");
+let teacher2 = new Teacher("Xilola Azimova", 2, [12, 5, 73], "MATEMATIKA");
+
 let student = new Student("Diyorbek Abdulhamdov", "900104240", "9-V", "Lola", 12);
-let student2 = new Student("Fayzbek Abdulhamidov", "900362911", "9-D", "Azizaxon", 12);
-let school = new School(12, "Angren Shahar", "PREZIDENT MAKTABI", "9-v");
+let student2 = new Student("Fayzbek Abdulhamidov", "900362911", "9-V", "Azizaxon", 12);
+let school = new School(12, "Angren Shahar", "PREZIDENT MAKTABI","9-V",[]);
 let predmet = new Predmet("MATEMATIKA", "Lola");
-let group = new Group("9-V",12, 27);
-let group2 = new Group("9-V",12,30);
+let predmet2 = new Predmet("ONA TILI", "Lola")
+let group = new Group("11-V",12, 27,[]);
+let group2 = new Group("10-B",12,30,[]);
+
 
 studentService.create(student,student2);
-teacherService.create(teacher);
+teacherService.create(teacher,teacher2);
 schoolService.create(school);
-predmetService.create(predmet);
+predmetService.create(predmet,predmet2);
 gruppeService.create(group,group2);
 
 export class Main {
@@ -42,30 +46,57 @@ export class Main {
         if(teachers.length === 0) throw new Error("Techer not found ❌");
         return teachers;
     }
-    getStudentByGroup(gruopName:string){
-        for(let student of studentService.getAllStudents()){
-            if(gruopName === student.groupName){
-                return student;
-            }
-            else throw new Error ("Student not found ❌");
+    getStudentByGroup(gruopName: string) {
+        for (let student of studentService.getAllStudents()) {
+            if (gruopName === student.groupName) return student
         }
+        throw new Error("Student not found ❌");
     }
+    
     getTeacherByPredmet(fan : string){
         for(let teacher of teacherService.getAllteachers()){
             if(teacher.predmets === fan) return teacher;
-            throw new Error("Teacher not found ❌");   
         }
+        throw new Error("Teacher not found ❌");   
     }  
     getSchoolByNum(schoolNum : number){
         for(let school of schoolService.getAllSchools()){
             if(school.schoolNumber === schoolNum) return school;
-            throw new Error("School not found ❌");
         }
+        throw new Error("School not found ❌");
     }
     getPredmetByTeacher(teacherName:string){
-        for(let predmet of predmetService.getAllPredmets()){
-            if(predmet.teacherName.toLocaleLowerCase() === teacherName.toLocaleLowerCase()) return predmet;
-            throw new Error("Predmet not found ❌");
+        for(let predmett of predmetService.getAllPredmets()){
+            if(predmett.teacherName.toLocaleLowerCase() === teacherName.toLocaleLowerCase()) return predmett;
+        }
+        throw new Error("Predmet not found ❌");
+    }
+    getGroupBySchoolNum(num : number){
+        for(let groupp of gruppeService.getAllGroups()){
+            if(groupp.schoolNum === num) return groupp;
+        }
+        throw new Error("Group not found ❌"); 
+    }
+
+    addStudenttoGroup(){
+        for(let studentt of studentService.getAllStudents()){
+            for(let groupp of gruppeService.getAllGroups()){
+                if(studentt.groupName === groupp.name){
+                    groupp.students.push(studentt);
+                    console.log(groupp);
+                }
+            }
+        }
+    }
+    addGroupToSchool(){
+        for(let groupp of gruppeService.getAllGroups()){
+            for(let schooll of schoolService.getAllSchools()){
+                if(schooll.groupName !== groupp.name){
+                    schooll.gropus.push(groupp);
+                    console.log(schooll);
+                }
+                else throw new Error("Group not pushed to school ❌");
+            }   
         }
     }
 }  

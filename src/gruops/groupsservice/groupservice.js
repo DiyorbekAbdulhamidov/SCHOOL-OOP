@@ -16,11 +16,6 @@ var GroupService = /** @class */ (function () {
         for (var _a = 0, groups_1 = groups; _a < groups_1.length; _a++) {
             var group = groups_1[_a];
             for (var i = 0; i < this.groups.length; i++) {
-                for (var _b = 0, _c = schoolService.getAllSchools(); _b < _c.length; _b++) {
-                    var school = _c[_b];
-                    if (group.name === school.groupName)
-                        throw new Error("This group has school ❌");
-                }
                 if (group.getId() === this.groups[i].getId()) {
                     throw new Error("Group already exists👌");
                 }
