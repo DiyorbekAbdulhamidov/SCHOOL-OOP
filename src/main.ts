@@ -8,7 +8,6 @@ import { Predmet } from "./predmets/predmet/predmet";
 import { PredmetService } from "./predmets/predmetservice/predmetservise";
 import { Group } from "./gruops/groups/group";
 import { GroupService } from "./gruops/groupsservice/groupservice";
-import { Fan } from "./teachers/teacher/teacher";
 
 let teacherService = new TeacherService();
 let studentService = new StudentService();
@@ -111,3 +110,4 @@ export class Main {
         return schoolService.getAllSchools();
     }
 }  
+// 

@@ -11,3 +11,4 @@ export class Predmet {
     constructor(public name: string, public teacherName : string){}
     
 }
+// 

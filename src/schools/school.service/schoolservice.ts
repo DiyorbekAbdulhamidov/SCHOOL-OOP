@@ -25,8 +25,5 @@ export class SchoolService {
             return school.schoolNumber;
         }
     }
-    
-    
-
 }
 

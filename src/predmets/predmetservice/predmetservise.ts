@@ -26,3 +26,4 @@ export class PredmetService{
         else throw new Error ("Predmet not found'❌"); 
     }
 }
+// 
