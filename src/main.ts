@@ -99,4 +99,15 @@ export class Main {
             }   
         }
     }
+    getAllStudents(){
+        return studentService.getAllStudents();
+    }
+
+    getAllGroups(){
+        return gruppeService.getAllGroups();
+    }
+
+    getAllSchools(){
+        return schoolService.getAllSchools();
+    }
 }  

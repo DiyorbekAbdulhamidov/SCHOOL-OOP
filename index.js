@@ -1,7 +1,9 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-var main_1 = require("./src/main");
-var main = new main_1.Main();
+const main_1 = require("./src/main");
+let main = new main_1.Main();
+main.addStudenttoGroup();
+main.addGroupToSchool();
 // console.log(main.getStudentBySchoolNum(12));
 // console.log(main.getTeacherBySchoolNum(5));
 // console.log(main.getStudentByGroup("9-V"));
@@ -9,5 +11,7 @@ var main = new main_1.Main();
 // console.log(main.getSchoolByNum(12));
 // console.log(main.getPredmetByTeacher("Lola"));
 // console.log(main.getGroupBySchoolNum(12));
-// console.log(main.addStudenttoGroup());
-console.log(main.addGroupToSchool());
+// console.log(main.getAllStudents());
+// console.log(main.getAllGroups());
+// console.log(main.getAllSchools());
+// async / await

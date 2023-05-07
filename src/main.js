@@ -112,6 +112,15 @@ var Main = /** @class */ (function () {
             }
         }
     };
+    Main.prototype.getAllStudents = function () {
+        return studentService.getAllStudents();
+    };
+    Main.prototype.getAllGroups = function () {
+        return gruppeService.getAllGroups();
+    };
+    Main.prototype.getAllSchools = function () {
+        return schoolService.getAllSchools();
+    };
     return Main;
 }());
 exports.Main = Main;
