@@ -11,4 +11,3 @@ export class Teacher{
         this.id = teacherId;
     }
 }
-// 

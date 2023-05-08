@@ -27,4 +27,3 @@ export class TeacherService{
         else throw new Error("Teacher not found ❌");
     }
 }
-// 

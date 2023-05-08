@@ -11,4 +11,3 @@ export class Group {
         this.id = id;
     }
 }
-// 

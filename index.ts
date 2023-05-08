@@ -13,6 +13,3 @@ console.log(main.getGroupBySchoolNum(12));
 console.log(main.getAllStudents());
 console.log(main.getAllGroups());
 console.log(main.getAllSchools());
-
-// async / await
-// 
